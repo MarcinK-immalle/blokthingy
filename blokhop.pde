@@ -1,6 +1,7 @@
  C blok;
 
 // Blok b1 = new Blok(20,50,50);
+//lol
 
 void setup(){
   size(1000,1000);

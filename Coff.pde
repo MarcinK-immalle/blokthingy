@@ -1,3 +1,5 @@
+//.
+
 class C {
   PGraphics blokCanvas;
   int size;
