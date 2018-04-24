@@ -3,12 +3,13 @@
 // Blok b1 = new Blok(20,50,50);
 
 void setup(){
-  size(500,500);
+  size(1000,1000);
+  background(155);
   frameRate(60);
   
   map();
   
-  blok = new C(50,200,200);
+  blok = new C(50,100,100);
 }
 
 void draw(){

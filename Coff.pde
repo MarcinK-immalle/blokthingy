@@ -21,13 +21,12 @@ class C {
   void blokUpd(int xc, int yc)
   {
     blokCanvas.clear();
-    image(blokCanvas, xc, yc);   
-      
+    image(blokCanvas, xc, yc);
   }
   
   int rowblok = 0;
   int rowcanv = 0;
-  /*
+  
   void pixAr()
   {
     loadPixels();
@@ -47,28 +46,42 @@ class C {
   {
     for(int i = 0 ; i <= size*size ; i++)
     {
-      if(blokCanvas.pixels[i] == 0){collision = 1;}else{collision = 0;}
+      if(blokCanvas.pixels[i] == 0)
+        {
+          collision = 1;
+        }
+        else
+        {  
+          collision = 0;
+        }
     }
   }
   
   void fall(){
-    if(collision == 0){
-      blok.blokUpd(xcoord, ycoord-10);
+    if(collision == 0)
+    {
+      blok.blokUpd(xcoord, ycoord);
+      ycoord += 10;
     }
   }
-  */
+  
   void moveAndKeys()
   {
     if (keyPressed /*&& collision == 0*/) {
     if (key == 'q' || key == 'Q') 
       {
         blokUpd(xcoord,ycoord);
-        xcoord -= 1;
+        xcoord -= 10;
       }
     else if(key == 'd' || key == 'D')
       {
         blokUpd(xcoord,ycoord);
-        xcoord += 1;
+        xcoord += 10;
+      }
+      else if(collision == 1 && key == 'z' || key == 'Z')
+      {
+        blokUpd(xcoord,ycoord);
+        ycoord -= 20;
       }
     }
   }
@@ -76,7 +89,7 @@ class C {
   void update()
   {
     blokUpd(xcoord, ycoord);
-    //blok.fall();
+    fall();
     //pixAr();
     //checkArForOverrides();
     moveAndKeys();
